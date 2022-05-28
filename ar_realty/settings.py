@@ -1,4 +1,7 @@
 from decouple import config
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -28,7 +31,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # 3rd party apps
-    "rest_framwork",
+    "rest_framework",
+    "cloudinary",
     # local apps
     "realtors.apps.RealtorsConfig",
 ]
@@ -44,6 +48,14 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "ar_realty.urls"
+
+# Cloudinary settings
+cloudinary.config(
+    cloud_name=config("CLOUDINARY_CLOUD_NAME"),
+    api_key=config("CLOUDINARY_API_KEY"),
+    api_secret=config("CLOUDINARY_API_SECRET"),
+    secure=True,
+)
 
 TEMPLATES = [
     {
