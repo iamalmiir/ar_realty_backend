@@ -4,6 +4,7 @@ from realtors import views
 
 urlpatterns = [
     path("realtors/", views.RealtorList.as_view()),
+    path("realtors/<slug:slug>/", views.RealtorDetail.as_view()),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
