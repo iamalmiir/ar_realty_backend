@@ -5,6 +5,7 @@ cloudinary==1.29.0
 commonmark==0.9.1
 defusedxml==0.7.1
 Django==4.0.4
+django-cloudinary-storage==0.3.0
 djangorestframework==3.13.1
 httpie==3.2.1
 idna==3.3

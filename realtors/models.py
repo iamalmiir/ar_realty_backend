@@ -10,8 +10,8 @@ class Realtor(models.Model):
     description = models.TextField(blank=True)
     phone = models.CharField(max_length=15)
     email = models.CharField(max_length=50)
-    mvp = models.BooleanField(default=False)
-    hire_date = models.DateTimeField(default=datetime.datetime.now, blank=True)
+    is_mvp = models.BooleanField(default=False)
+    hire_date = models.DateField(default=datetime.datetime.now, blank=True)
 
     def __str__(self):
         return self.full_name
