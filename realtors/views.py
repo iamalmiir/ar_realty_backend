@@ -4,7 +4,7 @@ from rest_framework import generics
 from realtors.serializers import RealtorSerializer
 
 
-class RealtorList(generics.ListAPIView):
+class RealtorList(generics.ListCreateAPIView):
     queryset = Realtor.objects.all()
     serializer_class = RealtorSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
