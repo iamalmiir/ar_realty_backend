@@ -22,12 +22,13 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # 3rd party apps
     "rest_framework",
+    "rest_framework.authtoken",
     "cloudinary",
     # local apps
     "realtors.apps.RealtorsConfig",
     "properties.apps.PropertiesConfig",
     "contacts.apps.ContactsConfig",
-    "accounts.apps.AccountsConfig",
+    "auth.apps.AuthConfig",
 ]
 
 MIDDLEWARE = [
