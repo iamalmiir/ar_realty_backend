@@ -1,3 +1,4 @@
+from uuid import uuid4
 from django.db import models
 from django.urls import reverse
 from datetime import datetime
@@ -10,7 +11,17 @@ class Property(models.Model):
     Propery for sale
     """
 
-    realtor = models.ForeignKey(Realtor, on_delete=models.CASCADE)
+    realtor = models.ForeignKey(
+        Realtor,
+        on_delete=models.CASCADE,
+        related_name="properties",
+    )
+    ID = models.UUIDField(
+        primary_key=True,
+        unique=True,
+        default=uuid4,
+        editable=False,
+    )
     slug = models.SlugField(editable=False, unique=True, max_length=50, null=True, blank=True)
     title = models.CharField(max_length=70)
     address = models.CharField(max_length=100)
