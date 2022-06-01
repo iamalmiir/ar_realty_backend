@@ -28,7 +28,6 @@ INSTALLED_APPS = [
     "realtors.apps.RealtorsConfig",
     "properties.apps.PropertiesConfig",
     "contacts.apps.ContactsConfig",
-    "auth.apps.AuthConfig",
 ]
 
 MIDDLEWARE = [
