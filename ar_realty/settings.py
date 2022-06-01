@@ -23,12 +23,20 @@ INSTALLED_APPS = [
     # 3rd party apps
     "rest_framework",
     "rest_framework.authtoken",
+    "oauth2_provider",
     "cloudinary",
     # local apps
     "realtors.apps.RealtorsConfig",
     "properties.apps.PropertiesConfig",
     "contacts.apps.ContactsConfig",
 ]
+
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "oauth2_provider.contrib.rest_framework.OAuth2Authentication",
+    ]
+}
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",

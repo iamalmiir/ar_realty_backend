@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Contact(models.Model):
@@ -9,7 +10,7 @@ class Contact(models.Model):
     phone = models.CharField(max_length=100)
     message = models.TextField(blank=True)
     contact_date = models.DateTimeField(auto_now_add=True)
-    user_id = models.IntegerField(blank=True)
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
