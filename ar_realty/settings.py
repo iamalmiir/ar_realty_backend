@@ -22,13 +22,13 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # 3rd party apps
     "rest_framework",
-    "rest_framework.authtoken",
     "oauth2_provider",
     "cloudinary",
     # local apps
     "realtors.apps.RealtorsConfig",
     "properties.apps.PropertiesConfig",
     "contacts.apps.ContactsConfig",
+    "users.apps.UsersConfig",
 ]
 
 
@@ -37,6 +37,9 @@ REST_FRAMEWORK = {
         "oauth2_provider.contrib.rest_framework.OAuth2Authentication",
     ]
 }
+
+AUTH_USER_MODEL = "users.User"
+LOGIN_URL = "/admin/login/"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",

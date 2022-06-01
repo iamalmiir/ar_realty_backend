@@ -6,4 +6,5 @@ urlpatterns = [
     path("", include("realtors.urls")),
     path("", include("properties.urls")),
     path("", include("contacts.urls")),
+    path("o/", include("oauth2_provider.urls", namespace="oauth2_provider")),
 ]
