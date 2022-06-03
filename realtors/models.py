@@ -6,7 +6,7 @@ from django.template.defaultfilters import slugify
 
 
 class Realtor(models.Model):
-    ID = models.UUIDField(primary_key=True, default=uuid4, editable=False)
+    id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
     full_name = models.CharField(max_length=100)
     slug = models.SlugField(editable=False, unique=True, max_length=50, null=True, blank=True)
     photo = models.ImageField(upload_to="realtors/%Y/%m/%d/")
