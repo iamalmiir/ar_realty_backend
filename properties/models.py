@@ -16,7 +16,7 @@ class Property(models.Model):
         on_delete=models.CASCADE,
         related_name="properties",
     )
-    ID = models.UUIDField(
+    id = models.UUIDField(
         primary_key=True,
         unique=True,
         default=uuid4,

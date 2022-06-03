@@ -5,4 +5,4 @@ from realtors.models import Realtor
 class RealtorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Realtor
-        fields = ["ID", "slug", "full_name", "photo", "description", "phone", "email", "is_mvp"]
+        fields = ["id", "slug", "full_name", "photo", "description", "phone", "email", "is_mvp"]
