@@ -1,0 +1,15 @@
+{
+  "title": "The Last of the Mohicans",
+  "address": "32-34, Newmarket Street",
+  "city": "Boston",
+  "state": "MA",
+  "zip": "02115",
+  "description": "Good local food, great service, and a great place to hang out.  The place is a bit small, but the food is great.  The service is great, and the prices are reasonable.",
+  "price": "3200000",
+  "bedrooms": "2",
+  "bathrooms": "2",
+  "garage": "1",
+  "sqft": "3200",
+  "lot_size": "0.5",
+  "photo": "https://s3-us-west-1.amazonaws.com/homepics-pro/images/000/000/000/original/the-last-of-the-mohicans-boston-ma.jpg?1501058981"
+}

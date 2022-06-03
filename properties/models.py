@@ -37,7 +37,7 @@ class Property(models.Model):
     lot_size = models.DecimalField(max_digits=5, decimal_places=1)
 
     # Media
-    photo_main = models.ImageField(upload_to="photos/%Y/%m/%d/")
+    photo_main = models.ImageField(upload_to="photos/%Y/%m/%d/", blank=True)
     photo_1 = models.ImageField(upload_to="photos/%Y/%m/%d/", blank=True)
     photo_2 = models.ImageField(upload_to="photos/%Y/%m/%d/", blank=True)
     photo_3 = models.ImageField(upload_to="photos/%Y/%m/%d/", blank=True)
