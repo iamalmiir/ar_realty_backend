@@ -22,28 +22,30 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # 3rd party apps
     "rest_framework",
-    "oauth2_provider",
+    "corsheaders",
     "cloudinary",
     # local apps
     "realtors.apps.RealtorsConfig",
     "properties.apps.PropertiesConfig",
     "contacts.apps.ContactsConfig",
-    "users.apps.UsersConfig",
 ]
 
 
 REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.AllowAny",
+    ],
     "DEFAULT_AUTHENTICATION_CLASSES": [
-        "oauth2_provider.contrib.rest_framework.OAuth2Authentication",
-    ]
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ],
 }
 
-AUTH_USER_MODEL = "users.User"
-LOGIN_URL = "/admin/login/"
+CORS_ORIGIN_ALLOW_ALL = True
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
