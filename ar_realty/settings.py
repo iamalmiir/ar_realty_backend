@@ -9,7 +9,9 @@ SECRET_KEY = config("SECRET_KEY")
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "localhost",
+]
 
 
 # Application definition
@@ -32,7 +34,6 @@ INSTALLED_APPS = [
     "users.apps.UsersConfig",
 ]
 
-
 REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.AllowAny",
@@ -44,7 +45,9 @@ REST_FRAMEWORK = {
 
 AUTH_USER_MODEL = "users.User"
 
-CORS_ORIGIN_ALLOW_ALL = True
+# CORS
+CORS_ALLOWED_ORIGINS = ["http://localhost:4000"]
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
