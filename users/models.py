@@ -7,15 +7,6 @@ from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseU
 
 class CustomAccountManager(BaseUserManager):
     def create_user(self, email, user_name, full_name, password):
-        if not email:
-            raise ValueError(_("Users must have an email address"))
-        elif not user_name:
-            raise ValueError(_("Users must have a user name"))
-        elif not full_name:
-            raise ValueError(_("Users must have a full name"))
-        elif not password:
-            raise ValueError(_("Users must have a password"))
-
         user = self.model(
             email=self.normalize_email(email),
             user_name=user_name,
@@ -26,15 +17,6 @@ class CustomAccountManager(BaseUserManager):
         return user
 
     def create_superuser(self, email, user_name, full_name, password):
-        if not email:
-            raise ValueError(_("Users must have an email address"))
-        elif not user_name:
-            raise ValueError(_("Users must have a user name"))
-        elif not full_name:
-            raise ValueError(_("Users must have a full name"))
-        elif not password:
-            raise ValueError(_("Users must have a password"))
-
         user = self.create_user(
             email=self.normalize_email(email),
             password=password,
@@ -50,7 +32,7 @@ class CustomAccountManager(BaseUserManager):
         return user
 
 
-class NewUser(AbstractBaseUser, PermissionsMixin):
+class User(AbstractBaseUser, PermissionsMixin):
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
     email = models.EmailField(
         _("email address"),
