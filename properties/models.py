@@ -53,6 +53,7 @@ class Property(models.Model):
     def __str__(self):
         return self.title
 
+ 
     def get_absolute_url(self):
         return reverse("title", kwargs={"slug": self.slug})
 
@@ -62,3 +63,4 @@ class Property(models.Model):
             value,
         )
         super().save(*args, **kwargs)
+
