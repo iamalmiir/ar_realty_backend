@@ -30,7 +30,7 @@ class UserView(APIView):
         try:
             access_token = request.headers.get('Authorization').split(' ')[1]
         except AttributeError:
-            return Response({"detail": "Token not found"}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"message": "Unable to authorize"}, status.HTTP_400_BAD_REQUEST)
 
         data = TokenBackend(algorithm='HS512', signing_key=config('SECRET_KEY')).decode(access_token)
         user = User.objects.filter(id=data.get('user_id')).first()
@@ -39,4 +39,4 @@ class UserView(APIView):
             user_data = UserSerializer(user)
             return Response(user_data.data)
 
-        return Response({"detail": "User not found"}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({"message": "Unable to authorize"}, status=status.HTTP_400_BAD_REQUEST)

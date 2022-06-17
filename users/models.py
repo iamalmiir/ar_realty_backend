@@ -49,6 +49,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         _("full name"),
         max_length=100,
     )
+    photo = models.ImageField(_("profile picture"), blank=True)
     start_date = models.DateTimeField(
         _("start date"),
         default=timezone.now,
