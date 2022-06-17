@@ -1,17 +1,19 @@
-from rest_framework import status
-from rest_framework.response import Response
-from rest_framework_simplejwt.backends import TokenBackend
-from rest_framework.views import APIView
-from users.serializers import RegisterUserSerializer
-from rest_framework.permissions import AllowAny
-from users.models import User
 from decouple import config
+from rest_framework import status
+from rest_framework.permissions import AllowAny
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from rest_framework_simplejwt.backends import TokenBackend
+
+from users.models import User
+from users.serializers import RegisterUserSerializer, UserSerializer
 
 
 class RegisterView(APIView):
     permission_classes = (AllowAny,)
 
-    def post(self, request):
+    @staticmethod
+    def post(request):
         serializer = RegisterUserSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -19,17 +21,22 @@ class RegisterView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-# Return user data
+# Decode token from reqest headers and get user id
 class UserView(APIView):
     permission_classes = (AllowAny,)
 
-    def get(self, request):
-        # Get user token from request header
-        user_token = request.headers.get("Authorization").split(" ")[1]
-        # Get user data from token
-        user_data = TokenBackend(algorithm="HS512").decode(user_token, config("SECRET_KEY"))
-        print(user_data)
-        # Get user from database
-        # user = User.objects.get(id=user_data["user_id"])
-        # Return user data
-        return Response("user")
+    @staticmethod
+    def get(request):
+        try:
+            access_token = request.headers.get('Authorization').split(' ')[1]
+        except AttributeError:
+            return Response({"detail": "Token not found"}, status=status.HTTP_400_BAD_REQUEST)
+
+        data = TokenBackend(algorithm='HS512', signing_key=config('SECRET_KEY')).decode(access_token)
+        user = User.objects.filter(id=data.get('user_id')).first()
+
+        if user:
+            user_data = UserSerializer(user)
+            return Response(user_data.data)
+
+        return Response({"detail": "User not found"}, status=status.HTTP_400_BAD_REQUEST)
