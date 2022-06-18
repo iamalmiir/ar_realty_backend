@@ -1,9 +1,16 @@
 from uuid import uuid4
+from passlib.hash import bcrypt
+from decouple import config
 
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
+
+
+hasher = bcrypt.using(
+    rounds=16,
+)
 
 
 class CustomAccountManager(BaseUserManager):
@@ -13,7 +20,8 @@ class CustomAccountManager(BaseUserManager):
             user_name=user_name,
             full_name=full_name,
         )
-        user.set_password(password)
+        hashed_password = hasher.hash(password)
+        user.set_password(hashed_password)
         user.save()
         return user
 
