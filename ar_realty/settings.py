@@ -1,6 +1,7 @@
-from decouple import config
 from datetime import timedelta
 from pathlib import Path
+
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -10,7 +11,6 @@ SECRET_KEY = config("SECRET_KEY")
 DEBUG = True
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
-
 
 # Application definition
 INSTALLED_APPS = [
@@ -39,13 +39,14 @@ REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 6
 }
 
 AUTH_USER_MODEL = "users.User"
 
 # CORS
-CORS_ALLOWED_ORIGINS = ["http://localhost:4000"]
-
+CORS_ALLOWED_ORIGINS = ["http://localhost:3000"]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -120,7 +121,6 @@ TIME_ZONE = "EST"
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = "static/"

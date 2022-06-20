@@ -1,8 +1,9 @@
 import datetime
 from uuid import uuid4
+
 from django.db import models
-from django.urls import reverse
 from django.template.defaultfilters import slugify
+from django.urls import reverse
 
 
 class Realtor(models.Model):
