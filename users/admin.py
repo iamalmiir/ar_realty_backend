@@ -1,9 +1,9 @@
 from django.contrib import admin
-from users.models import User
 from django.contrib.auth.admin import UserAdmin
-from django.forms import TextInput, Textarea, CharField
-from django import forms
 from django.db import models
+from django.forms import TextInput, Textarea
+
+from users.models import User
 
 
 class UserAdminConfig(UserAdmin):
@@ -12,7 +12,7 @@ class UserAdminConfig(UserAdmin):
     search_fields = ("email", "user_name", "full_name")
     ordering = ("-start_date",)
     fieldsets = (
-        (None, {"fields": ("email", "password")}),
+        (None, {"fields": ("avatar", "email", "password")}),
         (
             "Personal info",
             {"fields": ("user_name", "full_name", "start_date")},
