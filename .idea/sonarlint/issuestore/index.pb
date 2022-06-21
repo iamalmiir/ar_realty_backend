@@ -27,3 +27,7 @@ D
 users/models.py,f/1/f121007a966dcbe0e6d77b6ca09948108f3edfbb
 >
 users/tests.py,2/3/233a16b9bcdb821f3598bcbef17c91efb65fa793
+=
+users/urls.py,7/e/7ebb6dc32a2768a7e73ce1c83409f9c85bd4ad6a
+A
+ar_realty/urls.py,f/8/f82bfb0ac526d5c615cbad2b7bf727e3688a939c
