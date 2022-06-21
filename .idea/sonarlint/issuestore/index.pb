@@ -15,8 +15,6 @@ C
 properties/views.py,e\e\ee7d84207b11b2f133bd1db386d8852d4fefb831
 E
 ar_realty/settings.py,5\b\5b47935228b5f6e6f71d7637d820ba21dbf99d39
-A
-ar_realty/urls.py,f\8\f82bfb0ac526d5c615cbad2b7bf727e3688a939c
 D
 users/serializers.py,0\3\0370a3d1189c390d96351731f97e1b568264a270
 >
@@ -29,5 +27,3 @@ D
 users/models.py,f/1/f121007a966dcbe0e6d77b6ca09948108f3edfbb
 >
 users/tests.py,2/3/233a16b9bcdb821f3598bcbef17c91efb65fa793
-=
-users/urls.py,7/e/7ebb6dc32a2768a7e73ce1c83409f9c85bd4ad6a
