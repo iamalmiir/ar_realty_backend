@@ -27,3 +27,9 @@ D
 users/tests.py,2/3/233a16b9bcdb821f3598bcbef17c91efb65fa793
 =
 users/urls.py,7/e/7ebb6dc32a2768a7e73ce1c83409f9c85bd4ad6a
+A
+ar_realty/urls.py,f/8/f82bfb0ac526d5c615cbad2b7bf727e3688a939c
+@
+requirements.txt,1/9/19359a61ae2446b51b549167b014da2fcf265768
+E
+ar_realty/settings.py,5/b/5b47935228b5f6e6f71d7637d820ba21dbf99d39
