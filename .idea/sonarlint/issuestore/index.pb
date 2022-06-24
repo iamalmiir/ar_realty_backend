@@ -16,8 +16,6 @@ C
 D
 users/serializers.py,0\3\0370a3d1189c390d96351731f97e1b568264a270
 >
-users/views.py,5/f/5fc54a09665485d90807a8e72925d27743a0db75
->
 users/admin.py,3/e/3ea505836db8ef76dd1c89a43cfc6ee4cd79a896
 =
 users/apps.py,5/4/547f374cbbeef99e636bc50f0d5b5ba07651acb5
@@ -27,9 +25,7 @@ D
 users/tests.py,2/3/233a16b9bcdb821f3598bcbef17c91efb65fa793
 =
 users/urls.py,7/e/7ebb6dc32a2768a7e73ce1c83409f9c85bd4ad6a
-A
-ar_realty/urls.py,f/8/f82bfb0ac526d5c615cbad2b7bf727e3688a939c
 @
 requirements.txt,1/9/19359a61ae2446b51b549167b014da2fcf265768
-E
-ar_realty/settings.py,5/b/5b47935228b5f6e6f71d7637d820ba21dbf99d39
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
