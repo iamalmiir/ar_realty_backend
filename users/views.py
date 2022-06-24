@@ -21,7 +21,7 @@ class RegisterView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-# Decode token from reqest headers and get user id
+# Decode token from request headers and get user id
 class UserView(APIView):
     permission_classes = (AllowAny,)
 
