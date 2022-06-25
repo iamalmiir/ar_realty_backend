@@ -11,9 +11,13 @@ B
 realtors/models.py,4\e\4e63f865eab47db31f0ed779a30d707cf1a45ae9
 D
 properties/models.py,b\a\ba772ca887e6cad2155b4fc4b8168fc1b2cbb1c1
-C
-properties/views.py,e\e\ee7d84207b11b2f133bd1db386d8852d4fefb831
 @
 requirements.txt,1/9/19359a61ae2446b51b549167b014da2fcf265768
 9
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+B
+properties/urls.py,9/6/96af225e0bfc7c0baa8b11a7b0880e227e9b7394
+>
+users/views.py,5/f/5fc54a09665485d90807a8e72925d27743a0db75
+C
+properties/views.py,e/e/ee7d84207b11b2f133bd1db386d8852d4fefb831

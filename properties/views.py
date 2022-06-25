@@ -6,7 +6,7 @@ from properties.serializers import PropertySerializer
 
 
 class PropertyList(generics.ListCreateAPIView):
-    queryset = Property.objects.all()
+    queryset = list(Property.objects.all())
 
     serializer_class = PropertySerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
