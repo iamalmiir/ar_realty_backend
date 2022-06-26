@@ -1,6 +1,7 @@
-from realtors.models import Realtor
-from rest_framework import permissions
 from rest_framework import generics
+from rest_framework import permissions
+
+from realtors.models import Realtor
 from realtors.serializers import RealtorSerializer
 
 

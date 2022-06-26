@@ -6,7 +6,17 @@ from properties.serializers import PropertySerializer
 
 
 class PropertyList(generics.ListCreateAPIView):
-    queryset = list(Property.objects.all())
+    queryset = Property.objects.all()
 
     serializer_class = PropertySerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
+
+# Get the Property object by filtering by slug
+class PropertyDetail(generics.RetrieveAPIView):
+    lookup_field = "slug"
+    serializer_class = PropertySerializer
+
+    def get_queryset(self):
+        slug = self.kwargs.get("slug")
+        return Property.objects.filter(slug=slug)
