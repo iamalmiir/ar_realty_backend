@@ -47,7 +47,7 @@ REST_FRAMEWORK = {
 AUTH_USER_MODEL = "users.User"
 
 # CORS
-CORS_ALLOWED_ORIGINS = ["http://localhost:3000"]
+CORS_ALLOW_ALL = True
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
