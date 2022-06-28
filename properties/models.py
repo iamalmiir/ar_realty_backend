@@ -71,7 +71,7 @@ class Property(models.Model):
     photo_5 = models.ImageField(upload_to=PROPERTY_PHOTOS, blank=True)
 
     is_published = models.BooleanField(default=True)
-    pub_date = models.DateTimeField(default=datetime.now, blank=True)
+    pub_date = models.DateTimeField(default=datetime.today(), blank=True)
 
     class Meta:
         unique_together = ('realtor', 'pub_date')
