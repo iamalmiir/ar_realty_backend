@@ -7,31 +7,9 @@ from django.urls import reverse
 from multiselectfield import MultiSelectField
 
 from realtors.models import Realtor
+from properties.choices import COOLING_CHOICES, HEATING_CHOICES, US_STATES, LISTING_TYPES
 
 LISTING_PHOTOS = "photos/%Y/%m/%d/"
-
-COOLING_CHOICES = (
-    ("Central", "Central"),
-    ("Electric", "Electric"),
-    ("No data", "No data"),
-)
-
-HEATING_CHOICES = (
-    ("Central", "Central"),
-    ("Electric", "Electric"),
-    ("Forced Air", "Forced Air"),
-    ("Natural Gas", "Natural Gas"),
-    ("Fireplace", "Fireplace"),
-    ("No data", "No data"),
-)
-
-LISTING_TYPES = (
-    ("Single Family", "Single Family"),
-    ("Condo", "Condo"),
-    ("Townhouse", "Townhouse"),
-    ("Multi-Family", "Multi-Family"),
-    ("Duplex", "Duplex"),
-)
 
 
 class Listing(models.Model):
@@ -47,7 +25,7 @@ class Listing(models.Model):
     title = models.CharField(max_length=70)
     address = models.CharField(max_length=100)
     city = models.CharField(max_length=100)
-    state = models.CharField(max_length=30)
+    state = models.CharField(max_length=2, choices=US_STATES)
     zipcode = models.CharField(max_length=20)
     description = models.TextField(blank=True)
     price = models.IntegerField()

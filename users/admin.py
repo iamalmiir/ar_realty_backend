@@ -8,7 +8,15 @@ from users.models import User
 
 class UserAdminConfig(UserAdmin):
     # Display options for the admin site are defined here.
-    list_display = ("email", "user_name", "full_name", "is_staff", "is_superuser", "is_active")
+    list_display = (
+        "id",
+        "email",
+        "user_name",
+        "full_name",
+        "is_staff",
+        "is_superuser",
+        "is_active",
+    )
     # The fields to display in the admin site are defined here.
     list_filter = ("email", "is_staff", "is_superuser", "is_active")
     # The fields to search in the admin site are defined here.
