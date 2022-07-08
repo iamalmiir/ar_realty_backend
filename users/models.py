@@ -4,11 +4,6 @@ from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseU
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
-from passlib.hash import bcrypt
-
-hasher = bcrypt.using(
-    rounds=16,
-)
 
 
 class CustomAccountManager(BaseUserManager):
@@ -18,8 +13,8 @@ class CustomAccountManager(BaseUserManager):
             user_name=user_name,
             full_name=full_name,
         )
-        hashed_password = hasher.hash(password)
-        user.set_password(hashed_password)
+
+        user.set_password(password)
         user.save()
         return user
 
@@ -72,8 +67,8 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     objects = CustomAccountManager()
 
-    USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = ["user_name", "full_name"]
+    USERNAME_FIELD = "user_name"
+    REQUIRED_FIELDS = ["email", "full_name"]
 
     def __str__(self):
         return self.user_name

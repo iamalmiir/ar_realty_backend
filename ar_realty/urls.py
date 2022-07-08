@@ -9,7 +9,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/", include("realtors.urls")),
     path("api/", include("properties.urls")),
-    path("", include("contacts.urls")),
+    path("api/", include("contacts.urls")),
     path("api/user/", include("users.urls")),
     path("api/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
     path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),

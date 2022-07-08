@@ -1,22 +1,22 @@
 from rest_framework import generics
 from rest_framework import permissions
 
-from properties.models import Property
-from properties.serializers import PropertySerializer
+from properties.models import Listing
+from properties.serializers import ListingSerializer
 
 
-class PropertyList(generics.ListCreateAPIView):
-    queryset = Property.objects.all()
+class ListingList(generics.ListCreateAPIView):
+    queryset = Listing.objects.all()
 
-    serializer_class = PropertySerializer
+    serializer_class = ListingSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
 
 # Get the Property object by filtering by slug
-class PropertyDetail(generics.RetrieveAPIView):
+class ListingDetail(generics.RetrieveAPIView):
     lookup_field = "slug"
-    serializer_class = PropertySerializer
+    serializer_class = ListingSerializer
 
     def get_queryset(self):
         slug = self.kwargs.get("slug")
-        return Property.objects.filter(slug=slug)
+        return Listing.objects.filter(slug=slug)

@@ -1,9 +1,10 @@
 from django.contrib import admin
-from properties.models import Property
+
+from properties.models import Listing
 
 
-@admin.register(Property)
-class PropertyAdmin(admin.ModelAdmin):
+@admin.register(Listing)
+class ListingAdmin(admin.ModelAdmin):
     list_display = ["realtor", "title", "is_published"]
     list_filter = ["realtor", "is_published"]
     search_fields = ["title", "description"]
