@@ -3,6 +3,7 @@ from uuid import uuid4
 
 from django.db import models
 from django.template.defaultfilters import slugify
+from django.utils import timezone
 from django.urls import reverse
 from multiselectfield import MultiSelectField
 
@@ -51,6 +52,7 @@ class Listing(models.Model):
     photo_5 = models.ImageField(upload_to=LISTING_PHOTOS, blank=True)
 
     is_published = models.BooleanField(default=True)
+    publishedAt = models.CharField(max_length=100, blank=True, null=True)
     pub_date = models.DateTimeField(default=datetime.today(), blank=True)
 
     class Meta:
@@ -65,6 +67,8 @@ class Listing(models.Model):
 
     def save(self, *args, **kwargs):
         value = self.title + "-" + str(self.realtor.full_name)
+        normalized_date = self.pub_date.strftime("%B %d, %Y")
+        self.publishedAt = normalized_date
         self.slug = slugify(
             value,
         )
