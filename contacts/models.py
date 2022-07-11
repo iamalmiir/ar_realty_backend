@@ -11,8 +11,8 @@ class Contact(models.Model):
     listing_id = models.CharField(max_length=100)
     name = models.CharField(max_length=100)
     email = models.CharField(max_length=100)
-    phone = models.CharField(max_length=100)
-    message = models.TextField(blank=True)
+    phone = models.CharField(max_length=100, blank=True, null=True)
+    message = models.TextField(max_length=255)
     contact_date = models.DateTimeField(auto_now_add=True)
     user_id = models.UUIDField(blank=True, null=True)
 
