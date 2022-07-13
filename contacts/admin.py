@@ -14,3 +14,14 @@ class ContactAdmin(admin.ModelAdmin):
     )
     search_fields = ("listing", "listing_id", "name", "email", "phone", "message", "user_id")
     list_per_page = 25
+
+
+@admin.action(description="Delete all inquiries")
+def delete_all_inquiries(modeladmin, request, queryset):
+    queryset.delete()
+
+    modeladmin.message_user(
+        request,
+        "All inquiries have been deleted")
+
+    return None
