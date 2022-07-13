@@ -1,15 +1,24 @@
 from rest_framework import generics
 from rest_framework import permissions
+from rest_framework.response import Response
 
 from contacts.models import Inquiry
 from contacts.serializers import InquirySerializer
 
-
-class InquiryList(generics.ListCreateAPIView):
-    queryset = Inquiry.objects.all()
+# Create InquiryViewSet
+class CreateInquiry(generics.ListCreateAPIView):
     serializer_class = InquirySerializer
     permission_classes = (permissions.IsAuthenticated,)
 
     def perform_create(self, serializer):
-        print(self.request.data.get('name'))
-        serializer.save(user=self.request.inquiry)
+        user_id, inquiry = self.request.user.id, self.request.data
+        inquiry["user_id"] = user_id
+        listing_id = inquiry["listing_id"]
+        if Inquiry.objects.filter(user_id=user_id, listing_id=listing_id).exists():
+            raise ValueError("User already has an inquiry")
+        else:
+            serializer.save(**inquiry)
+
+    def get_queryset(self):
+        user_id = self.request.user.id
+        return Inquiry.objects.filter(user_id=user_id)
