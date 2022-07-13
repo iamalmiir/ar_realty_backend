@@ -1,8 +1,9 @@
 from django.contrib import admin
-from contacts.models import Contact
+
+from contacts.models import Inquiry
 
 
-@admin.register(Contact)
+@admin.register(Inquiry)
 class ContactAdmin(admin.ModelAdmin):
     list_display = ("listing", "name", "email", "phone")
     list_display_links = (

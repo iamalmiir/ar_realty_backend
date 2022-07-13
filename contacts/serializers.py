@@ -1,9 +1,9 @@
 from rest_framework import serializers
 
-from contacts.models import Contact
+from contacts.models import Inquiry
 
 
-class ContactSerializer(serializers.ModelSerializer):
+class InquirySerializer(serializers.ModelSerializer):
     class Meta:
-        model = Contact
+        model = Inquiry
         fields = "__all__"

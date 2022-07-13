@@ -5,7 +5,7 @@ from django.db import models
 from users.models import User
 
 
-class Contact(models.Model):
+class Inquiry(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
     listing = models.CharField(max_length=100)
     listing_id = models.CharField(max_length=100)

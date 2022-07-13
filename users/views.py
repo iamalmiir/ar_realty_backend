@@ -5,10 +5,10 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.backends import TokenBackend
 
+from contacts.models import Inquiry
+from contacts.serializers import InquirySerializer
 from users.models import User
-from contacts.models import Contact
 from users.serializers import RegisterUserSerializer, UserSerializer
-from contacts.serializers import ContactSerializer
 
 
 class RegisterView(APIView):
@@ -52,7 +52,7 @@ class UserDashboard(APIView):
 
     @staticmethod
     def get(request):
-        user_contacts = Contact.objects.order_by("-contact_date").filter(user_id=request.user.id)
-        user_contacts_serializer = ContactSerializer(user_contacts, many=True)
+        user_contacts = Inquiry.objects.order_by("-contact_date").filter(user_id=request.user.id)
+        user_contacts_serializer = InquirySerializer(user_contacts, many=True)
 
         return Response(user_contacts_serializer.data)
