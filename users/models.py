@@ -5,7 +5,9 @@ from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
-DEFAULT_AVATAR_URL = "https://res.cloudinary.com/iamalmiir/image/upload/v1657350671/catAvatar_iakq5p.jpg"
+DEFAULT_AVATAR_URL = (
+    "https://res.cloudinary.com/iamalmiir/image/upload/v1657350671/catAvatar_iakq5p.jpg"
+)
 
 
 class CustomAccountManager(BaseUserManager):
