@@ -1,6 +1,7 @@
 from rest_framework import generics
 from rest_framework import permissions
 
+from properties.choices import get_state_abbreviation
 from properties.models import Listing
 from properties.serializers import ListingSerializer
 
@@ -28,10 +29,11 @@ class SearchQuery(generics.ListAPIView):
 
     def get_queryset(self):
         q = self.request.query_params.get("q")
+
         return (
-            Listing.objects.filter(address__icontains=q)
-            or Listing.objects.filter(city__icontains=q)
-            or Listing.objects.filter(state__icontains=q)
-            or Listing.objects.filter(zipcode__icontains=q)
-            or Listing.objects.filter(title__icontains=q)
+                Listing.objects.filter(address__icontains=q)
+                or Listing.objects.filter(city__icontains=q)
+                or Listing.objects.filter(state__icontains=get_state_abbreviation(q))
+                or Listing.objects.filter(zipcode__icontains=q)
+                or Listing.objects.filter(title__icontains=q)
         )
