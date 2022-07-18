@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from contacts.models import Inquiry
+from contacts.models import Inquiry, BusinessInquiry
 
 
 @admin.register(Inquiry)
@@ -13,6 +13,26 @@ class ContactAdmin(admin.ModelAdmin):
         "phone",
     )
     search_fields = ("listing", "listing_id", "name", "email", "phone", "message", "user_id")
+    list_per_page = 25
+
+
+@admin.register(BusinessInquiry)
+class BusinessContactAdmin(admin.ModelAdmin):
+    list_display = ("first_name", "last_name", "email", "company_name", "phone")
+    list_display_links = (
+        "first_name",
+        "last_name",
+        "email",
+        "company_name",
+        "phone",
+    )
+    search_fields = (
+        "first_name",
+        "last_name",
+        "email",
+        "company_name",
+        "phone",
+    )
     list_per_page = 25
 
 
