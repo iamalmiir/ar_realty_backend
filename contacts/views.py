@@ -12,9 +12,10 @@ class CreateInquiry(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         user_id, inquiry = self.request.user.id, self.request.data
+        print(self.request.data)
         inquiry["user_id"] = user_id
         listing_id = inquiry["listing_id"]
-        
+
         if Inquiry.objects.filter(user_id=user_id, listing_id=listing_id).exists():
             raise ValueError("User already has an inquiry")
         else:
