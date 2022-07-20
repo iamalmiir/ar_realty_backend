@@ -8,7 +8,7 @@ from properties.serializers import ListingSerializer
 
 
 class ListingList(generics.ListCreateAPIView):
-    queryset = Listing.objects.all()
+    queryset = Listing.objects.filter(is_published=True)
 
     serializer_class = ListingSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
