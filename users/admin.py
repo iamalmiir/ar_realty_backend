@@ -9,7 +9,6 @@ from users.models import User
 class UserAdminConfig(UserAdmin):
     # Display options for the admin site are defined here.
     list_display = (
-        "id",
         "email",
         "user_name",
         "full_name",

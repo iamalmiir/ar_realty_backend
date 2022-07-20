@@ -74,3 +74,11 @@ US_STATES = (
     ("WI", "Wisconsin"),
     ("WY", "Wyoming"),
 )
+
+
+# Find the state by full name and return the abbreviation
+def get_state_abbreviation(state_name):
+    for state in US_STATES:
+        if state_name.lower() == state[1].lower():
+            return state[0]
+    return state_name
