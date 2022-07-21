@@ -6,7 +6,8 @@ from rest_framework.views import APIView
 from rest_framework_simplejwt.backends import TokenBackend
 
 from contacts.models import Inquiry
-from contacts.serializers import InquirySerializer
+from properties.models import Listing
+from properties.serializers import ListingSerializer
 from users.models import User
 from users.serializers import RegisterUserSerializer, UserSerializer
 
@@ -53,6 +54,8 @@ class UserDashboard(APIView):
     @staticmethod
     def get(request):
         user_contacts = Inquiry.objects.order_by("-contact_date").filter(user_id=request.user.id)
-        user_contacts_serializer = InquirySerializer(user_contacts, many=True)
-
-        return Response(user_contacts_serializer.data)
+        listings_ids = [listing.listing_id for listing in user_contacts]
+        user_listings = Listing.objects.filter(id__in=listings_ids)
+        user_listings_data = ListingSerializer(user_listings, many=True)
+        
+        return Response(user_listings_data.data)
