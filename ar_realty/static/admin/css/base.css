@@ -832,7 +832,7 @@ a.deletelink:visited {
 
 a.deletelink:focus,
 a.deletelink:hover {
-  color: #993333; /* XXX Probably unused? */
+  color: #99336e; /* XXX Probably unused? */
   text-decoration: none;
 }
 
